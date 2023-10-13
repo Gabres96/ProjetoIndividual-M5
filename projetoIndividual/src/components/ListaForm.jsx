@@ -6,15 +6,15 @@ const ListaForm = () => {
 
     const acaoEnviar = (e) => {
       e.preventDefault();
-      console.log("Enviou Formulario");
+      console.log(value, category);
     }
 
   return (
     <div className="form">
       <h2>Nova Tarefa</h2>
       <form onSubmit={acaoEnviar}>
-        <input type="text" placeholder="Nome da Tarefa" />
-        <select>
+        <input type="text" placeholder="Nome da Tarefa" onChange={(e)=> setValue(e.target.value)}/>
+        <select onChange={(e)=> setCategory(e.target.value)}>
           <option value="Categoria">Tipo de Tarefa</option>
           <option value="Trabalho">Trabalho</option>
           <option value="Pessoal">Pessoal</option>
