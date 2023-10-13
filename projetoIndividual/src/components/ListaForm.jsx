@@ -1,10 +1,18 @@
-import React from "react";
+import {useState} from "react";
 
 const ListaForm = () => {
+    const[value, setValue]= useState("");
+    const [category, setCategory] = useState("");
+
+    const acaoEnviar = (e) => {
+      e.preventDefault();
+      console.log("Enviou Formulario");
+    }
+
   return (
     <div className="form">
       <h2>Nova Tarefa</h2>
-      <form>
+      <form onSubmit={acaoEnviar}>
         <input type="text" placeholder="Nome da Tarefa" />
         <select>
           <option value="Categoria">Tipo de Tarefa</option>
