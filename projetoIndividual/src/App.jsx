@@ -4,6 +4,7 @@ import Todo from "./components/Todo";
 import ListaForm from "./components/ListaForm";
 import Search from "./components/Search";
 import Filtro from "./components/Filtro";
+import EditTodo from "./components/EditTodo";
 
 import "./App.css";
 
@@ -28,6 +29,13 @@ function App() {
       isCompleted: false,
     },
   ]);
+
+  const editTodo = (id, newText) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    );
+    setTodos(updatedTodos);
+  };
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
@@ -85,6 +93,7 @@ function App() {
               : b.text.localeCompare(a.text)
           )
           .map((todo) => (
+  
             <Todo
               key={todo.id}
               todo={todo}
