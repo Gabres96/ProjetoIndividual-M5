@@ -3,8 +3,10 @@ import { useState } from "react";
 import Todo from "./components/Todo";
 import ListaForm from "./components/ListaForm";
 import Search from "./components/Search";
+import Filtro from "./components/Filtro";
 
 import "./App.css";
+
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -61,7 +63,8 @@ function App() {
   return (
     <div className="app">
       <h1>Lista de Tarefas</h1>
-      <Search search={search} setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch}/>
+      <Filtro/>
       <div className="todo-list">
         {todos
           .filter((todo) =>
